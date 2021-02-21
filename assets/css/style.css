@@ -1,41 +1,102 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --primary: #44e9ff;
-    --secondary: #497980;
-    --tertiary: rgb(192, 246, 253);
-    --grey: #333;
-    font-size: 62.5%;
-  }
-  
-  body {
-    background: #ededed;
-    color: var(--grey);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  header {
-    background: var(--secondary);
-    padding: 30px 25px;
-    border-bottom: 5px solid var(--primary);
-  }
-  
-  header p {
-    color: var(--tertiary);
-    margin: 5px 0 20px;
-    font-size: 2rem;
-  }
-  
-  p,
-  li {
-    font-size: 1.6rem;
-  }
-  
-  
+  box-sizing: border-box;
+}
+
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+  --primary: #44e9ff;
+  --secondary: #497980;
+  --tertiary: rgb(192, 246, 253);
+  --grey: #333;
+  font-size: 62.5%;
+}
+
+body {
+  --hue: var(--hue-neutral);
+  background: #ededed;
+  color: var(--grey);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vh;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+  width: 800px;
+  max-width: 80%;
+  background: var(--secondary);
+  padding: 30px 25px;
+  border-bottom: 5px solid var(--primary);
+}
+
+header p {
+  color: var(--tertiary);
+  margin: 5px 0 20px;
+  font-size: 2rem;
+}
+
+p, li {
+  font-size: 1.6rem;
+}
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: #333;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  --hue: var(--hue-neutral);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  background-color: #333;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+}
+
+.btn:hover {
+  border-color: black;
+}
+
+.btn-correct {
+  --hue: var(var(--hue-correct));
+  color: black;
+}
+
+.btn-wrong {
+  --hue: var(var(--hue-wrong));
+}
+
+.btn-start, .btn-next {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}

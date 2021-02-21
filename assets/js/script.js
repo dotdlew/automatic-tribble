@@ -1,61 +1,52 @@
-let startQuizBtn = document.getElementById('btn-start-quiz');
-const questionElement = docu
-
 let quizScore = 0;
 let timeLeft = 30;
+const startQuizBtn = document.getElementById('btn-start-quiz');
+const quizBox = document.getElementById('quiz-container');
+const questionElement = document.getElementById('question');
+const answerButtonsElement = document.getElementById('answer-buttons');
+let shuffledQuestions, currentQuestionIndex;
 
-const quizQuestions = [
-    {
-        question: "Who invented JavaScript?",
-        answers: [
-            { a: "Douglas Crockford", correct: false },
-            { b: "Sheryl Sandberg", correct: false },
-            { c: "Brendan Eich", correct: true },
-            { d: "option d", correct: false },
-        ]
-    },
-    {
-        question: "Which one of these is a JavaScript package manager?",
-        answers: [
-            { a: "Node.js", correct: false },
-            { b: "TypeScript", correct: false },
-            { c: "npm", correct: true },
-            { d: "option d", correct: false },
-        ]
-    },
-    {
-        question: "Which tool can you use to ensure code quality?",
-        answers: [
-            { a: "Angular", correct: false },
-            { b: "jQuery", correct: false },
-            { c: "RequireJS", correct: false },
-            { d: "ESLint", correct: true },
-        ]
-    }
-];
+// start quiz
+startQuizBtn.addEventListener('click', startQuiz);
 
-function quiz() {
-    let quizBox = document.getElementById("quiz-box");
-
-    for (let i = 0; i < quizQuestions.length; i++) {
-        let quizItem = `
-        <div class="quiz-box" id="quiz-box">
-            <div id="questions"><h2>${quizQuestions[i].question}</h2></div>
-                <div id="answer-buttons" class="answer-buttons btn">
-                    <button>${quizQuestions[i].answers.a}</button>
-                    <button>${quizQuestions[i].answers.b}</button>
-                    <button>${quizQuestions[i].answers.c}</button>
-                    <button>${quizQuestions[i].answers.d}</button>
-                </div>
-            </div>
-        </div>
-        `
-        quizBox.innerHTML = quizItem;
-        // nextQuestion();
-
-
-    };
+function startQuiz() {
+    console.log("quizzing");
+    shuffledQuestions = question.sort(() => Math.random() - .5);
+    currentQuestionIndex = 0;
+    // start timer
+    countdown();
+    // create quiz
+    // quiz();
 };
+
+// next question
+function setNextQuestion() {
+    resetState();
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
+
+function showQuestion(question) {
+    questionElement.innerText = question.question
+    question.answers.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        button.addEventListener('click', selectAnswer)
+        answerButtonsElement.appendChild(button)
+    })
+}
+
+function resetState(){
+
+}
+
+// select answer
+function selectAnswer(e) {
+
+}
 
 // Timer that counts down from 60
 function countdown() {
@@ -85,12 +76,32 @@ function countdown() {
     }, 1000);
 };
 
-function startQuiz() {
-    console.log("quizzing");
-    // start timer
-    countdown();
-    // create quiz
-    quiz();
-};
-
-startQuizBtn.addEventListener('click', startQuiz);
+const question = [
+    {
+        question: "Who invented JavaScript?",
+        answers: [
+            { a: "Douglas Crockford", correct: false },
+            { b: "Sheryl Sandberg", correct: false },
+            { c: "Brendan Eich", correct: true },
+            { d: "option d", correct: false },
+        ]
+    },
+    {
+        question: "Which one of these is a JavaScript package manager?",
+        answers: [
+            { a: "Node.js", correct: false },
+            { b: "TypeScript", correct: false },
+            { c: "npm", correct: true },
+            { d: "option d", correct: false },
+        ]
+    },
+    {
+        question: "Which tool can you use to ensure code quality?",
+        answers: [
+            { a: "Angular", correct: false },
+            { b: "jQuery", correct: false },
+            { c: "RequireJS", correct: false },
+            { d: "ESLint", correct: true },
+        ]
+    }
+];

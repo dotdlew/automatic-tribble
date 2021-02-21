@@ -24,10 +24,20 @@
     </header>
 
     <!-- main holds quiz game -->
-    <main class="quiz-content" id="quiz-content">
-        <section class="quiz-wrapper" id="quiz-wrapper">
-            <div class="quiz-box" id="quiz-box"></div>
-        </section>
+    <main class="container" id="container">
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 1</button>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="btn-start" class="btn btn-start">Start</button>
+            <button id="btn-next" class="hide btn btn-next">Next</button>
+        </div>
     </main>
 
     <script src="./assets/js/script.js"></script>
