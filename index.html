@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Web APIs Challenge: Code Quiz</title>
+</head>
+
+<body>
+    <!-- header holds quiz controls and settings -->
+    <header>
+        <div class="quiz-controls">
+            <h1 class="page-title">Web APIs Challenge: Code Quiz</h1>
+            <p>Finish the quiz before the timer runs out!</p>
+            <button class="btn-high-scores btn" id="btn-high-scores">high scores</button>
+            <button class="btn-start-quiz btn" id="btn-start-quiz">Start Quiz!</button>
+        </div>
+        <div class="quiz-timer">
+            <h3>Timer: <span id="quiz-timer">30 seconds!</span></h3>
+        </div>
+    </header>
+
+    <!-- main holds quiz game -->
+    <main class="quiz-content" id="quiz-content">
+        <section class="quiz-wrapper" id="quiz-wrapper">
+            <div class="quiz-box" id="quiz-box"></div>
+        </section>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
