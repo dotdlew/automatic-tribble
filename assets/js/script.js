@@ -1,7 +1,6 @@
 let quizScore = 0;
-let timeLeft = 30;
+let timeLeft = 60;
 const startButton = document.getElementById('start-btn');
-const nextButton = document.getElementById('next-btn');
 const quizContainerEl = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
@@ -42,7 +41,6 @@ function showQuestion(question) {
 }
 
 function resetState() {
-    // nextButton.classList.add('hide');
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
     }
@@ -57,7 +55,6 @@ function selectAnswer(e) {
       setStatusClass(button, button.dataset.correct)
     })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    //   nextButton.classList.remove('hide')
     } else {
       startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
