@@ -51,7 +51,8 @@ function resetState() {
 // select answer
 function selectAnswer(e) {
     const selectedButton = e.target
-    let correct = selectedButton.dataset.correct
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
       setStatusClass(button, button.dataset.correct)
     })
@@ -67,8 +68,14 @@ function selectAnswer(e) {
     clearStatusClass(element)
     if (correct) {
       element.classList.add('correct')
+      quizScore++
+      currentQuestionIndex++
+      setNextQuestion()
     } else {
       element.classList.add('wrong')
+      timeLeft--
+      currentQuestionIndex++
+      setNextQuestion()
     }
   }
   
@@ -131,6 +138,33 @@ const questions = [
             { text: "jQuery", correct: false },
             { text: "RequireJS", correct: false },
             { text: "ESLint", correct: true },
+        ]
+    },
+    {
+        question: "VSCode is short for?",
+        answers: [
+            { text: "very short code", correct: false },
+            { text: "vulnerable string code", correct: false },
+            { text: "visual studio code", correct: true },
+            { text: "option d", correct: false },
+        ]
+    },
+    {
+        question: "Which one of these is option d?",
+        answers: [
+            { text: "option a", correct: false },
+            { text: "option b", correct: false },
+            { text: "option c", correct: false },
+            { text: "option d", correct: true },
+        ]
+    },
+    {
+        question: "which is better?",
+        answers: [
+            { text: "a dog", correct: true },
+            { text: "a cat", correct: false },
+            { text: "a bird", correct: false },
+            { text: "a bee", correct: false },
         ]
     }
 ];
