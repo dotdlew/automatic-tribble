@@ -18,20 +18,21 @@
             <button class="btn-high-scores btn" id="btn-high-scores">high scores</button>
             <button class="start-btn btn" id="start-btn">Start Quiz!</button>
         </div>
-        <div class="quiz-timer">
-            <h3>Timer: <span id="quiz-timer">60 seconds!</span></h3>
+        <div class="controls">
+            <h3>Timer: <span id="timer" class="timer">60 seconds!</span></h3>
+            <h3>Score: <span id="score" class="score">0 pts</span></h3>
         </div>
     </header>
 
     <!-- main holds quiz game -->
     <div class="container">
         <div id="question-container" class="hide">
-            <div id="question" class="question">Question</div>
+            <div id="question" class="question"></div>
             <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 1</button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
             </div>
         </div>
     </div>

@@ -53,6 +53,15 @@ header p {
 
 .question {
   color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.quiz-controls {
+  display: flex;
 }
 
 .btn-grid {
@@ -83,17 +92,12 @@ header p {
 
 .btn-wrong {
   --hue: var(var(--hue-wrong));
-}
-
-.start-btn, .next-btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px 20px;
+  color: black;
 }
 
 .controls {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
