@@ -1,7 +1,8 @@
 let quizScore = 0;
 let timeLeft = 30;
 const startButton = document.getElementById('start-btn');
-const quizContainerEl = document.getElementById('quiz-container');
+const nextButton = document.getElementById('next-btn');
+const quizContainerEl = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 let shuffledQuestions, currentQuestionIndex;
@@ -10,7 +11,6 @@ let shuffledQuestions, currentQuestionIndex;
 startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
-    console.log("quizzing");
     startButton.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
@@ -18,8 +18,6 @@ function startQuiz() {
     setNextQuestion();
     // start timer
     countdown();
-    // create quiz
-    // quiz();
 };
 
 // next question
@@ -29,6 +27,7 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
+    // display question
     questionElement.innerText = question.question
     question.answers.forEach(answer => {
         const button = document.createElement('button')
@@ -42,15 +41,42 @@ function showQuestion(question) {
     })
 }
 
-function resetState(){
-
+function resetState() {
+    // nextButton.classList.add('hide');
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+    }
 }
 
 // select answer
 function selectAnswer(e) {
-
-}
-
+    const selectedButton = e.target
+    let correct = selectedButton.dataset.correct
+    Array.from(answerButtonsElement.children).forEach(button => {
+      setStatusClass(button, button.dataset.correct)
+    })
+    if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    //   nextButton.classList.remove('hide')
+    } else {
+      startButton.innerText = 'Restart'
+      startButton.classList.remove('hide')
+    }
+  }
+  
+  function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+      element.classList.add('correct')
+    } else {
+      element.classList.add('wrong')
+    }
+  }
+  
+  function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+  }
+  
 // Timer that counts down from 60
 function countdown() {
     let timerEl = document.getElementById("quiz-timer");
@@ -83,28 +109,28 @@ const questions = [
     {
         question: "Who invented JavaScript?",
         answers: [
-            { a: "Douglas Crockford", correct: false },
-            { b: "Sheryl Sandberg", correct: false },
-            { c: "Brendan Eich", correct: true },
-            { d: "option d", correct: false },
+            { text: "Douglas Crockford", correct: false },
+            { text: "Sheryl Sandberg", correct: false },
+            { text: "Brendan Eich", correct: true },
+            { text: "option d", correct: false },
         ]
     },
     {
         question: "Which one of these is a JavaScript package manager?",
         answers: [
-            { a: "Node.js", correct: false },
-            { b: "TypeScript", correct: false },
-            { c: "npm", correct: true },
-            { d: "option d", correct: false },
+            { text: "Node.js", correct: false },
+            { text: "TypeScript", correct: false },
+            { text: "npm", correct: true },
+            { text: "option d", correct: false },
         ]
     },
     {
         question: "Which tool can you use to ensure code quality?",
         answers: [
-            { a: "Angular", correct: false },
-            { b: "jQuery", correct: false },
-            { c: "RequireJS", correct: false },
-            { d: "ESLint", correct: true },
+            { text: "Angular", correct: false },
+            { text: "jQuery", correct: false },
+            { text: "RequireJS", correct: false },
+            { text: "ESLint", correct: true },
         ]
     }
 ];
