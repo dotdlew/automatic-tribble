@@ -1,18 +1,21 @@
 let quizScore = 0;
 let timeLeft = 30;
-const startQuizBtn = document.getElementById('btn-start-quiz');
-const quizBox = document.getElementById('quiz-container');
+const startButton = document.getElementById('start-btn');
+const quizContainerEl = document.getElementById('quiz-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 let shuffledQuestions, currentQuestionIndex;
 
 // start quiz
-startQuizBtn.addEventListener('click', startQuiz);
+startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
     console.log("quizzing");
-    shuffledQuestions = question.sort(() => Math.random() - .5);
+    startButton.classList.add('hide');
+    shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
+    quizContainerEl.classList.remove('hide');
+    setNextQuestion();
     // start timer
     countdown();
     // create quiz
@@ -76,7 +79,7 @@ function countdown() {
     }, 1000);
 };
 
-const question = [
+const questions = [
     {
         question: "Who invented JavaScript?",
         answers: [

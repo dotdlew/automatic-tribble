@@ -16,7 +16,7 @@
             <h1 class="page-title">Web APIs Challenge: Code Quiz</h1>
             <p>Finish the quiz before the timer runs out!</p>
             <button class="btn-high-scores btn" id="btn-high-scores">high scores</button>
-            <button class="btn-start-quiz btn" id="btn-start-quiz">Start Quiz!</button>
+            <button class="start-btn btn" id="start-btn">Start Quiz!</button>
         </div>
         <div class="quiz-timer">
             <h3>Timer: <span id="quiz-timer">30 seconds!</span></h3>
@@ -25,7 +25,7 @@
 
     <!-- main holds quiz game -->
     <main class="container" id="container">
-        <div id="question-container" class="hide">
+        <div id="quiz-container" class="hide">
             <div id="question">Question</div>
             <div id="answer-buttons" class="btn-grid">
                 <button class="btn">Answer 1</button>
@@ -35,8 +35,8 @@
             </div>
         </div>
         <div class="controls">
-            <button id="btn-start" class="btn btn-start">Start</button>
-            <button id="btn-next" class="hide btn btn-next">Next</button>
+            <!-- <button id="start-btn" class="start-btn btn">Start</button> -->
+            <!-- <button id="next-btn" class="hide btn next-btn">Next</button> -->
         </div>
     </main>
 

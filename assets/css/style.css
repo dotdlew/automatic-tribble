@@ -1,4 +1,4 @@
-* {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -42,10 +42,6 @@ header p {
   font-size: 2rem;
 }
 
-p, li {
-  font-size: 1.6rem;
-}
-
 .container {
   width: 800px;
   max-width: 80%;
@@ -85,7 +81,7 @@ p, li {
   --hue: var(var(--hue-wrong));
 }
 
-.btn-start, .btn-next {
+.start-btn, .next-btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
